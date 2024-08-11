@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+    #form{
+        margin: 4%;
+        background-color: whitesmoke;
+        padding: 20px;
+        border: 15px solid black;
+        border-radius: 30px;
+        box-shadow: blue;
+        margin-bottom: 10%;
+    }
+    input[type="submit"] {
+        text-align: center;
+        margin: 0 auto; /* add this to center the button horizontally */
+        display: block; /* add this to make the button a block element */
+        font-size: 30px;
+}
+input[type="radio"] {
+        padding: 3%;
+}
+</style>
+
+<h1 style="color: white; text-align: center;">{{ topic }} Quiz</h1>
+<!-- <h1>Quiz: {{ topic }}</h1> -->
+<!-- <p>Score: {{ score }}</p> -->
+<form id="form" action="" method="post">
+    {% for question in questions %}
+        <h2>{{ question.question }}</h2>
+        {% for option in question.options %}
+            <input type="radio" name="{{ question.question }}" value="{{ option }}">{{ option }}<br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+    <input  type="submit" value="Submit">
+</form>
+{%  endblock body %}

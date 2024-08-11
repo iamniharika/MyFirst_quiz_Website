@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<style>
+    h2{
+        color: white;
+        text-align: center;
+        margin: 10%;
+
+    }
+    .btn{
+        color: white;
+        align-items: center;
+        font-size: 30px;
+        margin: 42%;
+
+    }
+</style>
+
+    <h2>Your Score: {{ score }}/{{ total }}</h2>
+    <a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">Back to Home</a>
+{% endblock body %}

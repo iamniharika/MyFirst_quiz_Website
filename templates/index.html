@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    #heading{
+        margin: 3%;
+        padding: 2%;
+        font-size: 70px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: whitesmoke;
+    }
+   .list-group-item{
+    margin: 3%;
+    padding: 2%;
+    background-color: transparent;
+    border: solid;
+    border-color: black;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 7%;
+   }
+</style>
+<center id="heading">
+    <p>Let's Play </p>
+    <h3>quiz time</h3>
+</center>
+ 
+<h1 class="mt-5" style="text-align: center; color: white;">Select a Quiz Topic</h1>
+<ul class="list-group mt-3">
+    {% for quiz in quizzes %}
+        <li class="list-group-item">
+            <a href="{{ url_for('quiz', topic=quiz) }}">{{ quiz.title() }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock body %}
